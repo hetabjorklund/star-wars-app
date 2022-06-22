@@ -1,4 +1,14 @@
+import { Injectable } from "@angular/core";
+import { LogService } from "./log.service";
+
+// Annotaatio @Injectable tarvitaan, jotta tämän servicen voi joko injektoida muualle
+// tai jotta tähän serviceen voi injektoida muita servicejä
+@Injectable()
 export class MoominService {
+
+  constructor(logService: LogService) {
+    this.logService = logService;
+  }
 
   // lista alustetaan tässä
   // ListComponentilla on oma listamuuttuja characters, johon tämä asetetaan sen getCharacters-metodissa
@@ -6,6 +16,8 @@ export class MoominService {
     { name: 'Muumipeikko', side: ''},
     { name: 'Nuuskamuikkunen', side: ''}
   ];
+
+  private logService: LogService;
 
   // filtteröi characters-listan sen mukaan, minkä tabin käyttäjä on valinnut
   // slice tai filter palauttaa kopion listasta, ei itse listaa
@@ -25,6 +37,7 @@ export class MoominService {
       return character.name === characterInfo.name;
     });
     this.characters[position].side = characterInfo.side;
+    this.logService.writeLog("Assigned " + characterInfo.name + " as " + characterInfo.side);
   }
 
 }
