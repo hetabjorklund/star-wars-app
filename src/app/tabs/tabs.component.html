@@ -1,14 +1,19 @@
+<!-- Tämä menee app.component.html:n sisälle-->
 <div>
   <ul class="nav nav-tabs nav-fill">
-    <li class="nav-item">
-      <a class="nav-link active" aria-current="page" (click)="onChoose('all')" style="cursor: pointer">All</a>
+    <li class="nav-item" [ngClass]="{active: chosenList === 'all'}">
+      <!-- onChoose kuuntelee klikkausta ja kertoo minkä valinnan tab näytetään -->
+      <a class="nav-link" aria-current="page" (click)="onChoose('all')" style="cursor: pointer">All</a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" [ngClass]="{active: chosenList === 'moomin'}">
       <a class="nav-link" (click)="onChoose('moomin')" style="cursor: pointer">Moomins</a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" [ngClass]="{active: chosenList === 'nonmoomin'}">
       <a class="nav-link" (click)="onChoose('nonmoomin')" style="cursor: pointer">Non-moomins</a>
     </li>
   </ul>
-  <app-list [characters]="getCharacters()"></app-list>
+  <!-- getCharacters on TabsComponentin metodi, joka filtteröi näytettävän listan onChoosen kuunteleman valinnan mukaan -->
+  <app-list [characters]="getCharacters()" (sideAssigned2)="onSideChosen($event)"></app-list>
+  <!-- sideAssigned2 on ListComponentin muuttuja, jolle tässä asetetaan kuuntelija joka kuuntelee sen muutoksia
+  jos sideAssigned2 muuttuu, kutsutaan TabsComponentin metodia onSideChosen, jolle välitetään muutos event-tietona -->
 </div>

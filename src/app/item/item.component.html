@@ -1,8 +1,15 @@
-<a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+<!-- Tämä menee list.component.html:n sisälle -->
+<a href="#" class="list-group-item list-group-item-action" aria-current="true">
   <h5 class="mb-1">{{ character.name }}</h5>
   <div>
-    <button class="btn btn-primary">Muumi</button>
-    <button class="btn btn-secondary">Ei-muumi</button>
+    <!-- Kumpikin nappi kuuntee klikkausta ja
+    klikkauksen perusteella vie moomin- tai nonmoomin-tiedon ItemComponentille,
+    joka käyttää onAssign-metodiaan asettaakseen omalle sideAssigned-EventMitter-muuttujalleen
+    tässä valitun puolen sen side-attribuuttiin;
+    name-attribuuttiin menee klikatun hahmon nimi
+    se, että tässä on joku character jolla on nimi, tiedetään siitä että yllä h5-tagin kohdalla on {{ character.name }} -->
+    <button class="btn btn-primary" (click)="onAssign('moomin')">Moomin</button>
+    <button class="btn btn-secondary" (click)="onAssign('nonmoomin')">Non-moomin</button>
   </div>
 </a>
 
