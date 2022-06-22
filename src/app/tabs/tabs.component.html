@@ -13,7 +13,7 @@
     </li>
   </ul>
   <!-- getCharacters on TabsComponentin metodi, joka filtteröi näytettävän listan onChoosen kuunteleman valinnan mukaan -->
-  <app-list [characters]="getCharacters()" (sideAssigned2)="onSideChosen($event)"></app-list>
+  <app-list [characters]="getCharacters()"></app-list>
   <!-- sideAssigned2 on ListComponentin muuttuja, jolle tässä asetetaan kuuntelija joka kuuntelee sen muutoksia
   jos sideAssigned2 muuttuu, kutsutaan TabsComponentin metodia onSideChosen, jolle välitetään muutos event-tietona -->
 </div>
