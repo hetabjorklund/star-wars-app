@@ -7,6 +7,7 @@ import { TabsComponent } from './tabs/tabs.component';
 import { ListComponent } from './list/list.component';
 import { ItemComponent } from './item/item.component';
 import { MoominService } from './moomin.service';
+import { LogService } from './log.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { MoominService } from './moomin.service';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [MoominService],
+  providers: [MoominService, LogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
