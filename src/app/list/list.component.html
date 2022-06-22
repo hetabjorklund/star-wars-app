@@ -4,10 +4,6 @@
   ItemComponentin character-muuttujaan sidotaan iteroitava character -->
   <app-item
     *ngFor="let character of characters"
-    [character]="character"
-    (sideAssigned1)="onSideAssigned($event)">
-    <!-- sideAssigned1 on ItemComponentin muuttuja, jonka ItemComponent välittää vanhemmalleen eli ListComponentille
-    tässä kuunnellaan sen muutoksia ja jos sideAssigned1 muuttuu, kutsutaan ListComponentin metodia onSideAssigned
-    jolle välitetään muuttumistapahtuma -->
+    [character]="character">
   </app-item>
 </div>

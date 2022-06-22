@@ -12,8 +12,7 @@
       <a class="nav-link" (click)="onChoose('nonmoomin')" style="cursor: pointer">Non-moomins</a>
     </li>
   </ul>
-  <!-- getCharacters on TabsComponentin metodi, joka filtteröi näytettävän listan onChoosen kuunteleman valinnan mukaan -->
+  <!-- getCharacters on TabsComponentin metodi, joka kutsuu MuumiServicen samannimistä metodia
+  joka filtteröi näytettävän listan onChoosen (yllä) kuunteleman valinnan mukaan -->
   <app-list [characters]="getCharacters()"></app-list>
-  <!-- sideAssigned2 on ListComponentin muuttuja, jolle tässä asetetaan kuuntelija joka kuuntelee sen muutoksia
-  jos sideAssigned2 muuttuu, kutsutaan TabsComponentin metodia onSideChosen, jolle välitetään muutos event-tietona -->
 </div>

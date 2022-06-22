@@ -1,6 +1,7 @@
 export class MoominService {
 
-  // lista alustetaan tässä ja välitetään ListComponentille, joka on TabsComponentin lapsikomponentti
+  // lista alustetaan tässä
+  // ListComponentilla on oma listamuuttuja characters, johon tämä asetetaan sen getCharacters-metodissa
   characters = [
     { name: 'Muumipeikko', side: ''},
     { name: 'Nuuskamuikkunen', side: ''}
@@ -18,7 +19,7 @@ export class MoominService {
     );
   }
 
-  // ottaa vastaan muuttuneen sideAssigned2-muuttujan ja päivittää hahmon tiedot characters-listassa
+  // ottaa vastaan ItemComponentin onAssign-metodilta tiedon hahmosta ja valitusta puolesta ja päivittää hahmon tiedot characters-listassa
   onSideChosen(characterInfo) {
     const position = this.characters.findIndex((character) => {
       return character.name === characterInfo.name;

@@ -3,9 +3,9 @@
   <h5 class="mb-1">{{ character.name }}</h5>
   <div>
     <!-- Kumpikin nappi kuuntee klikkausta ja
-    klikkauksen perusteella vie moomin- tai nonmoomin-tiedon ItemComponentille,
-    joka käyttää onAssign-metodiaan asettaakseen omalle sideAssigned1-EventMitter-muuttujalleen
-    tässä valitun puolen sen side-attribuuttiin;
+    klikkauksen perusteella vie moomin- tai nonmoomin-tiedon ItemComponentin onAssign-metodille
+    onAssign-metodi kutsuu MoominServicen metodia onSideChosen ja antaa sille parametrina hahmon nimen ja valitun puolen
+    MoominServicen onSideChosen tallentaa muutoksen hahmon tietoihin
     name-attribuuttiin menee klikatun hahmon nimi
     se, että tässä on joku character jolla on nimi, tiedetään siitä että yllä h5-tagin kohdalla on {{ character.name }} -->
     <button class="btn btn-primary" (click)="onAssign('moomin')">Moomin</button>
