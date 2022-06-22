@@ -4,8 +4,7 @@ import { MoominService } from '../moomin.service';
 @Component({
   selector: 'app-tabs',
   templateUrl: './tabs.component.html',
-  styleUrls: ['./tabs.component.css'],
-  providers: [MoominService]
+  styleUrls: ['./tabs.component.css']
 })
 export class TabsComponent implements OnInit {
 

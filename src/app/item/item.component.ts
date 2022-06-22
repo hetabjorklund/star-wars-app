@@ -9,8 +9,10 @@ import { MoominService } from '../moomin.service';
 })
 export class ItemComponent implements OnInit {
 
-  // list.component.html-sivulla iteroidaan characters-listan läpi ja sidotaan läpikäytävä listan asia ItemComponentin character-muuttujaan
-  // tieto tulee siis vanhemmalta (ListComponent) alas lapsikomponentille (ItemComponent) minkä takia @Input-annotaatio on täällä lapsen päädyssä
+  // list.component.html-sivulla iteroidaan characters-listan läpi ja
+  // sidotaan läpikäytävä listan asia ItemComponentin character-muuttujaan
+  // tieto tulee siis vanhemmalta (ListComponent) alas lapsikomponentille (ItemComponent)
+  // minkä takia @Input-annotaatio on täällä lapsen päädyssä
   @Input() character;
 
   moominService : MoominService;
