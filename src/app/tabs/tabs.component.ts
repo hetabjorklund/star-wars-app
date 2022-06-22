@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MoominService } from '../moomin.service';
+import { MoominService } from '../services/moomin.service';
 
 @Component({
   selector: 'app-tabs',
