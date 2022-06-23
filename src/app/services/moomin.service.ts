@@ -20,6 +20,13 @@ export class MoominService {
   private logService: LogService;
 
   addCharacter(name: string, side: string) {
+    // tarkista, onko hahmo jo olemassa
+    const position = this.characters.findIndex((character) => {
+      return character.name === name;
+    });
+    if (position != -1) {
+      return;
+    }
     const newCharacter = {name: name, side: side};
     this.characters.push(newCharacter);
     this.logService.writeLog("Added new character " + newCharacter.name);
