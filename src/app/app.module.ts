@@ -15,7 +15,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes : Routes = [
   {path: '', component: TabsComponent}, // tyhjä path on juuri eli etusivu, sillä halutaan näkyvän TabsComponent
-  {path: 'new-character', component: CreateCharacterComponent} // /new-character on sivu jolla halutaan näkyvän CreateCharacterComponent
+  {path: 'new-character', component: CreateCharacterComponent}, // /new-character on sivu jolla halutaan näkyvän CreateCharacterComponent
+  {path: '**', redirectTo: '/'} // kaikki muut reitit uudelleenohjaavat juureen, joten jos käyttäjä kirjoittaa osoitteen jota ei ole olemassa, kaatumisen sijaan mennään etusivulle
 ];
 
 @NgModule({
