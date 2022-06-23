@@ -9,6 +9,7 @@ import { ItemComponent } from './item/item.component';
 import { MoominService } from './services/moomin.service';
 import { LogService } from './services/log.service';
 import { CreateCharacterComponent } from './create-character/create-character.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CreateCharacterComponent } from './create-character/create-character.co
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [MoominService, LogService],
   bootstrap: [AppComponent]

@@ -1,11 +1,11 @@
-<form>
+<form (ngSubmit)="onSubmit('Submit-nappia klikattu!')">
   <div class="form-group">
     <label for="name">Character name</label>
-    <input type="text" id="name" name="name" class="form-control">
+    <input type="text" id="name" name="name" class="form-control" NgModel>
   </div>
   <div class="form-group"></div>
     <label for="side">Choose moomin-ness</label>
-    <select name="side" id="side" class="form-control">
+    <select name="side" id="side" class="form-control" NgModel>
       <option *ngFor="let side of availableSides" [value]="side.value">{{ side.display }}</option>
     </select>
     <button class="btn btn-primary" type="submit">Add character</button>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LogService } from '../services/log.service';
 
 @Component({
   selector: 'app-create-character',
@@ -13,9 +14,17 @@ export class CreateCharacterComponent implements OnInit {
     {display: 'Non-moomin', value: 'nonmoomin'}
   ];
 
-  constructor() { }
+  logService: LogService;
+
+  constructor(logService: LogService) {
+    this.logService = logService;
+   }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(message: string) {
+    this.logService.writeLog(message);
   }
 
 }
