@@ -1,0 +1,5 @@
+/* Jos käyttäjä valitsee kentän mutta ei syötä validia arvoa, kenttä ympäröidään punaisella.
+Validaatio tehdään create-character.component.html-sivulla direktiivillä "required" */
+input.ng-invalid.ng-touched {
+  border: 2px solid tomato;
+}
