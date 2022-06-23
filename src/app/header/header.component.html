@@ -1,8 +1,26 @@
 <ul class="nav nav-pills">
+  <!-- routerLinkActive="active" == [routerLinkActive]="'active'" -->
   <li class="nav-item">
-    <a class="nav-link" href="#">Moomin Valley characters</a>
+    <!-- routerLink käyttää property bindingia
+  jos tarkoitus on välittää merkkijono kuten tässä, routerLink="/" tai routerLink="/new-character" toimisi myös,
+  mutta routerLink="funktionNimi()" aiheuttaisi virheen, koska Angular olettaa että ""-merkkien välissä on merkkijono -->
+    <a
+      class="nav-link"
+      [routerLink]="'/'"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact: true}">
+      Moomin Valley characters
+    </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Add a new character</a>
+    <a
+      class="nav-link"
+      [routerLink]="'/new-character'"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact: true}">
+      Add a new character
+    </a>
   </li>
 </ul>
+
+
