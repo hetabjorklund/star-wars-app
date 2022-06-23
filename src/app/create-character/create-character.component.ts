@@ -29,7 +29,9 @@ export class CreateCharacterComponent implements OnInit {
 
   onSubmit(submittedForm) {
     this.logService.writeLog(submittedForm.value);
-    this.moominService.addCharacter(submittedForm.value.name, submittedForm.value.side);
+    if (!submittedForm.invalid) {
+      this.moominService.addCharacter(submittedForm.value.name, submittedForm.value.side);
+    }
   }
 
 }
