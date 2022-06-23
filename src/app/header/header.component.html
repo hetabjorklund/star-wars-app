@@ -6,18 +6,16 @@
   mutta routerLink="funktionNimi()" aiheuttaisi virheen, koska Angular olettaa että ""-merkkien välissä on merkkijono -->
     <a
       class="nav-link"
-      [routerLink]="'/'"
       routerLinkActive="active"
-      [routerLinkActiveOptions]="{exact: true}">
+      [routerLink]="'/characters'">
       Moomin Valley characters
     </a>
   </li>
   <li class="nav-item">
     <a
       class="nav-link"
-      [routerLink]="'/new-character'"
       routerLinkActive="active"
-      [routerLinkActiveOptions]="{exact: true}">
+      [routerLink]="'/new-character'">
       Add a new character
     </a>
   </li>
