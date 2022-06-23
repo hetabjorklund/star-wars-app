@@ -38,7 +38,7 @@ const routes : Routes = [
   // kaikki muut reitit uudelleenohjaavat juureen, joten jos käyttäjä kirjoittaa osoitteen jota ei ole olemassa, kaatumisen sijaan mennään etusivulle
   {
     path: '**',
-    redirectTo: '/characters'
+    redirectTo: '/characters/all'
   }
 ];
 
