@@ -12,7 +12,7 @@ export class MoominService {
 
   // lista alustetaan tässä
   // ListComponentilla on oma listamuuttuja characters, johon tämä asetetaan sen getCharacters-metodissa
-  characters = [
+  private characters = [
     { name: 'Muumipeikko', side: ''},
     { name: 'Nuuskamuikkunen', side: ''}
   ];
