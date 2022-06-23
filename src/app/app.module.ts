@@ -11,6 +11,12 @@ import { LogService } from './services/log.service';
 import { CreateCharacterComponent } from './create-character/create-character.component';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes : Routes = [
+  {path: '', component: TabsComponent}, // tyhjä path on juuri eli etusivu, sillä halutaan näkyvän TabsComponent
+  {path: 'new-character', component: CreateCharacterComponent} // /new-character on sivu jolla halutaan näkyvän CreateCharacterComponent
+];
 
 @NgModule({
   declarations: [
@@ -24,6 +30,7 @@ import { HeaderComponent } from './header/header.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule.forRoot(routes),
     FormsModule
   ],
   providers: [MoominService, LogService],
