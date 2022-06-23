@@ -1,11 +1,18 @@
-<form (ngSubmit)="onSubmit('Submit-nappia klikattu!')">
+<!-- Angular luo lomakkeesta JS-olion, joka sidotaan form-muuttujaan syntaksilla #form="ngForm"
+form-muuttujaa voi sitten käyttää missä vain html-templaatin sisällä, kun Angular on siitä täten tietoinen
+form-muuttujan nimen pitää olla form, koska risuaidan kanssa #form antaa pääsyn html-elementtiin <form/>
+(ngSubmit) kuuntelee lomakkeen lähetystä ja jos se lähetetään (l. painetaan nappia, jonka tyypiksi on määritelty submit),
+kutsutaan CreateCharacterComponentin metodia onSubmit -->
+<form (ngSubmit)="onSubmit(form)" #form="ngForm">
   <div class="form-group">
     <label for="name">Character name</label>
-    <input type="text" id="name" name="name" class="form-control" NgModel>
+    <!-- "NgModel" lomakkeen kaikkien kenttien kohdalla tuo lomakkeen ja sen kentät & kenttiin syötetyt tiedot
+    Angularin tietoon, jotta lomaketta voi käsitellä ngFormin kautta -->
+    <input type="text" id="name" name="name" class="form-control" ngModel>
   </div>
   <div class="form-group"></div>
     <label for="side">Choose moomin-ness</label>
-    <select name="side" id="side" class="form-control" NgModel>
+    <select name="side" id="side" class="form-control" ngModel>
       <option *ngFor="let side of availableSides" [value]="side.value">{{ side.display }}</option>
     </select>
     <button class="btn btn-primary" type="submit">Add character</button>

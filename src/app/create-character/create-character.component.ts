@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LogService } from '../services/log.service';
+import { MoominService } from '../services/moomin.service';
 
 @Component({
   selector: 'app-create-character',
@@ -16,15 +17,19 @@ export class CreateCharacterComponent implements OnInit {
 
   logService: LogService;
 
-  constructor(logService: LogService) {
+  moominService: MoominService;
+
+  constructor(logService: LogService, moominService: MoominService) {
     this.logService = logService;
+    this.moominService = moominService;
    }
 
   ngOnInit(): void {
   }
 
-  onSubmit(message: string) {
-    this.logService.writeLog(message);
+  onSubmit(submittedForm) {
+    this.logService.writeLog(submittedForm.value);
+    this.moominService.addCharacter(submittedForm.value.name, submittedForm.value.side);
   }
 
 }

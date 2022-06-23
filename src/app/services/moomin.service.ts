@@ -19,6 +19,12 @@ export class MoominService {
 
   private logService: LogService;
 
+  addCharacter(name: string, side: string) {
+    const newCharacter = {name: name, side: side};
+    this.characters.push(newCharacter);
+    this.logService.writeLog("Added new character " + newCharacter.name);
+  }
+
   // filtteröi characters-listan sen mukaan, minkä tabin käyttäjä on valinnut
   // slice tai filter palauttaa kopion listasta, ei itse listaa
   getCharacters(chosenList) {
