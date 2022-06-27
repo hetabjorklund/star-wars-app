@@ -36,8 +36,6 @@ export class ListComponent implements OnInit, OnDestroy {
    }
 
   ngOnInit(): void {
-    this.moominService.fetchCharacters();
-
     this.activatedRoute.params.subscribe(
       (params) => { // ensimmäinen argumentti tekee jotain välitetyille reitin parametreille
         this.characters = this.moominService.getCharacters(params.side);
@@ -51,7 +49,6 @@ export class ListComponent implements OnInit, OnDestroy {
         this.characters = this.moominService.getCharacters(this.currentSide); // vaihtaa hahmon listalta toiselle heti kun puoli muuttuu
       }
     );
-
   }
 
 }
