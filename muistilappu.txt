@@ -1,0 +1,5 @@
+Replace HttpModule with HttpClientModule in your AppModule (and import { HttpClientModule } from '@angular/common/http')
+
+Replace the Http service with the HttpClient service (just as in step 1, instead of importing from @angular/http, import { HttpClient } from '@angular/common/http')
+
+Remove any map(res => res.json()) calls (which we'll add later in our code). They are no longer needed.
