@@ -6,11 +6,14 @@
   </div>
   <hr>
   <div class="row">
-    <div class="col-xs-12">
+    <div *ngIf="charactersLoaded; else elseBlock" class="col-xs-12">
       <!-- Angular asettaa router-outletin tilalle sen polun sisällön, johon on navigoitu
       polut ja minkä sisällön mikäkin näyttää, on määritelty app.module.ts-tiedostossa  -->
       <router-outlet></router-outlet>
     </div>
+    <ng-template #elseBlock>
+      <app-loading></app-loading>
+    </ng-template>
   </div>
 </div>
 

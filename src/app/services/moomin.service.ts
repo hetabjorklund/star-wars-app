@@ -61,7 +61,9 @@ export class MoominService {
         this.charactersChanged.next(); // kerro charactersChanged:ille että jotain on muuttunut, jotta ListComponentin ngOnInit tietää sen ja päivittää listan
       },
       error: (e) => console.error(e),
-      complete: () => console.info('fetchCharacters complete')
+      complete: () => {
+        console.info('fetchCharacters complete');
+      }
     });
   }
 

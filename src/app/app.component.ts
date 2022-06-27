@@ -8,6 +8,8 @@ import { MoominService } from './services/moomin.service';
 })
 export class AppComponent implements OnInit {
 
+  charactersLoaded = false;
+
   moominService : MoominService;
 
   constructor(moominService : MoominService) {
@@ -16,5 +18,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.moominService.fetchCharacters();
+    this.charactersLoaded = true;
   }
+
 }
