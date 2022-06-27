@@ -1,15 +1,12 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import { LogService } from "./log.service";
+import { HttpClient } from '@angular/common/http';
 
 // Annotaatio @Injectable tarvitaan, jotta tämän servicen voi joko injektoida muualle
 // tai jotta tähän serviceen voi injektoida muita servicejä
 @Injectable()
 export class MoominService {
-
-  constructor(logService: LogService) {
-    this.logService = logService;
-  }
 
   // lista alustetaan tässä
   // ListComponentilla on oma listamuuttuja characters, johon tämä asetetaan sen getCharacters-metodissa
@@ -21,6 +18,10 @@ export class MoominService {
   private logService: LogService;
 
   charactersChanged = new Subject<void>(); // voisi käyttää myös EventMitteriä
+
+  constructor(logService: LogService, http : HttpClient) {
+    this.logService = logService;
+  }
 
   addCharacter(name: string, side: string) {
     // tarkista, onko hahmo jo olemassa

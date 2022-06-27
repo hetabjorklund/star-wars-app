@@ -12,6 +12,7 @@ import { CreateCharacterComponent } from './create-character/create-character.co
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes : Routes = [
   // tyhjä path on juuri eli etusivu, sillä halutaan näkyvän TabsComponent
@@ -53,6 +54,7 @@ const routes : Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     RouterModule.forRoot(routes),
     FormsModule
