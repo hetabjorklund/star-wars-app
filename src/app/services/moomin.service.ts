@@ -60,7 +60,8 @@ export class MoominService {
         const uudet = newCharacters.map(char => {
           return {name: char.name, side: ''};
         });
-        this.characters = [... uudet];
+        //this.characters = [... uudet]; // korvaa kokonaan
+        this.characters = [... this.characters, ... uudet];
         this.charactersChanged.next();
       },
       error: (e) => console.error(e),
