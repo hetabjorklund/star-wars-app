@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { Subject } from "rxjs";
 import { LogService } from "./log.service";
 
 // Annotaatio @Injectable tarvitaan, jotta tämän servicen voi joko injektoida muualle
@@ -18,6 +19,8 @@ export class MoominService {
   ];
 
   private logService: LogService;
+
+  charactersChanged = new Subject<void>(); // voisi käyttää myös EventMitteriä
 
   addCharacter(name: string, side: string) {
     // tarkista, onko hahmo jo olemassa
@@ -50,6 +53,7 @@ export class MoominService {
       return character.name === characterInfo.name;
     });
     this.characters[position].side = characterInfo.side;
+    this.charactersChanged.next(); // charactersChanged kertoo eteenpäin, että jotain on muuttunut
     this.logService.writeLog("Assigned " + characterInfo.name + " as " + characterInfo.side);
   }
 

@@ -17,6 +17,8 @@ export class ListComponent implements OnInit {
   //@Input() characters;
   characters = [];
 
+  currentSide = 'all';
+
   moominService: MoominService;
 
   constructor(activatedRoute: ActivatedRoute, moominService: MoominService) {
@@ -26,10 +28,19 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(
-      (params) => {
+      (params) => { // ensimmäinen argumentti tekee jotain välitetyille reitin parametreille
         this.characters = this.moominService.getCharacters(params.side);
+        this.currentSide = params.side;
+      } //,
+      // (error) => {}, // jos tapahtuisi virhe (ei päde paramsin kohdalla, mutta muiden pyyntöjen kohdalla voisi olla)
+      // () => {console.log("ListComponentin ngOnInit valmis")} // mitä tehdään kun metodin muut askeleet on suoritettu
+    );
+    this.moominService.charactersChanged.subscribe(
+      () => {
+        this.characters = this.moominService.getCharacters(this.currentSide); // vaihtaa hahmon listalta toiselle heti kun puoli muuttuu
       }
     );
+
   }
 
 }
