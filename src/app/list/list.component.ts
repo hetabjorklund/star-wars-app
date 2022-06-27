@@ -36,6 +36,8 @@ export class ListComponent implements OnInit, OnDestroy {
    }
 
   ngOnInit(): void {
+    this.moominService.fetchCharacters();
+
     this.activatedRoute.params.subscribe(
       (params) => { // ensimmäinen argumentti tekee jotain välitetyille reitin parametreille
         this.characters = this.moominService.getCharacters(params.side);

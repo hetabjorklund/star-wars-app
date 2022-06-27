@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
-import { Subject } from "rxjs";
+import { Observable, Subject } from "rxjs";
 import { LogService } from "./log.service";
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 // Annotaatio @Injectable tarvitaan, jotta tämän servicen voi joko injektoida muualle
 // tai jotta tähän serviceen voi injektoida muita servicejä
@@ -15,12 +15,17 @@ export class MoominService {
     { name: 'Nuuskamuikkunen', side: ''}
   ];
 
+  httpClient: HttpClient;
+
   private logService: LogService;
 
   charactersChanged = new Subject<void>(); // voisi käyttää myös EventMitteriä
 
-  constructor(logService: LogService, http : HttpClient) {
+  starWarsAPI : string = 'https://swapi.dev/api/people/';
+
+  constructor(logService: LogService, httpClient : HttpClient) {
     this.logService = logService;
+    this.httpClient = httpClient;
   }
 
   addCharacter(name: string, side: string) {
@@ -34,6 +39,28 @@ export class MoominService {
     const newCharacter = {name: name, side: side};
     this.characters.push(newCharacter);
     this.logService.writeLog("Added new character " + newCharacter.name);
+  }
+
+  // vanha tapa tehdä get, deprekoitu, uusi next-error-complete-tapa alla
+  // fetchCharacters() {
+  //   this.httpClient.get(this.starWarsAPI).subscribe(
+  //     (res) => {
+  //       console.log(res);
+  //     },
+  //     (error) => {console.error()}
+  //   );
+  // }
+
+  fetchCharacters() {
+    this.httpClient.get(this.starWarsAPI).subscribe({
+      next: (res) => {
+        console.log(res);
+        const newCharacters = res['results'];
+        console.log("tässä newCharacters: " + newCharacters.toString());
+      },
+      error: (e) => console.error(e),
+      complete: () => console.info('fetchCharacters complete')
+    });
   }
 
   // filtteröi characters-listan sen mukaan, minkä tabin käyttäjä on valinnut
