@@ -57,6 +57,11 @@ export class MoominService {
         console.log(res);
         const newCharacters = res['results'];
         console.log("tässä newCharacters: " + newCharacters.toString());
+        const uudet = newCharacters.map(char => {
+          return {name: char.name, side: ''};
+        });
+        this.characters = [... uudet];
+        this.charactersChanged.next();
       },
       error: (e) => console.error(e),
       complete: () => console.info('fetchCharacters complete')
