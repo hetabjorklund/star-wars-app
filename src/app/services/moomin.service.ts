@@ -55,13 +55,10 @@ export class MoominService {
     this.httpClient.get(this.starWarsAPI).subscribe({
       next: (res) => {
         console.log(res);
-        const newCharacters = res['results'];
-        console.log("tässä newCharacters: " + newCharacters.toString());
-        const uudet = newCharacters.map(char => {
-          return {name: char.name, side: ''};
+        const newCharacters = res['results'].map(character => {
+          return {name: character.name, side: ''};
         });
-        //this.characters = [... uudet]; // korvaa kokonaan
-        this.characters = [... this.characters, ... uudet];
+        this.characters = [... this.characters, ... newCharacters];
         this.charactersChanged.next();
       },
       error: (e) => console.error(e),
