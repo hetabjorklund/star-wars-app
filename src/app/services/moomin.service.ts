@@ -1,25 +1,24 @@
 import { Injectable } from "@angular/core";
-import { Observable, Subject } from "rxjs";
+import { Subject } from "rxjs";
 import { LogService } from "./log.service";
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 // Annotaatio @Injectable tarvitaan, jotta tämän servicen voi joko injektoida muualle
 // tai jotta tähän serviceen voi injektoida muita servicejä
 @Injectable()
 export class MoominService {
 
-  // lista alustetaan tässä
-  // ListComponentilla on oma listamuuttuja characters, johon tämä asetetaan sen getCharacters-metodissa
+  // lista alustetaan tässä, getCharacters() hakee lisää hahmoja ja lisää ne listan jatkoksi
   private characters = [
     { name: 'Muumipeikko', side: ''},
     { name: 'Nuuskamuikkunen', side: ''}
   ];
 
+  charactersChanged = new Subject<void>(); // voisi käyttää myös EventMitteriä
+
   httpClient: HttpClient;
 
   private logService: LogService;
-
-  charactersChanged = new Subject<void>(); // voisi käyttää myös EventMitteriä
 
   starWarsAPI : string = 'https://swapi.dev/api/people/';
 

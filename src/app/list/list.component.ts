@@ -13,9 +13,6 @@ export class ListComponent implements OnInit, OnDestroy {
 
   activatedRoute: ActivatedRoute;
 
-  // characters-lista tulee vanhemmalta eli TabsComponentilta
-  // ListComponent on tässä suhteessa lapsikomponentti, eli @Input-annotaatio on täällä lapsen päädyn muuttujassa
-  //@Input() characters;
   characters = [];
 
   currentSide = 'all';
