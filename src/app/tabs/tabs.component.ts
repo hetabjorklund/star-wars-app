@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-//import { MoominService } from '../services/moomin.service';
+//import { CharacterService } from '../services/character.service';
 
 @Component({
   selector: 'app-tabs',
@@ -13,17 +13,17 @@ export class TabsComponent implements OnInit {
   // minkä tabin käyttäjä on valinnut
   // chosenList = 'all';
 
-  // moominService : MoominService;
+  // characterService : CharacterService;
 
-  // constructor(moominService: MoominService) {
-  //   this.moominService = moominService;
+  // constructor(characterService: CharacterService) {
+  //   this.characterService = characterService;
   // }
 
   constructor() {}
 
-  // kutsuu MoominServicen samannimistä metodia, joka filtteröi characters-listan sen mukaan, minkä tabin käyttäjä on valinnut
+  // kutsuu CharacterServicen samannimistä metodia, joka filtteröi characters-listan sen mukaan, minkä tabin käyttäjä on valinnut
   // getCharacters() {
-  //   this.characters = this.moominService.getCharacters(this.chosenList);
+  //   this.characters = this.characterService.getCharacters(this.chosenList);
   //   return this.characters;
   // }
 

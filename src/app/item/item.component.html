@@ -4,8 +4,8 @@
   <div>
     <!-- Kumpikin nappi kuuntee klikkausta ja
     klikkauksen perusteella vie moomin- tai nonmoomin-tiedon ItemComponentin onAssign-metodille
-    onAssign-metodi kutsuu MoominServicen metodia onSideChosen ja antaa sille parametrina hahmon nimen ja valitun puolen
-    MoominServicen onSideChosen tallentaa muutoksen hahmon tietoihin
+    onAssign-metodi kutsuu CharacterServicen metodia onSideChosen ja antaa sille parametrina hahmon nimen ja valitun puolen
+    CharacterServicen onSideChosen tallentaa muutoksen hahmon tietoihin
     name-attribuuttiin menee klikatun hahmon nimi
     se, että tässä on joku character jolla on nimi, tiedetään siitä että yllä h5-tagin kohdalla on {{ character.name }} -->
     <button class="btn btn-primary" (click)="onAssign('moomin')">Moomin</button>

@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { ListComponent } from './list/list.component';
 import { ItemComponent } from './item/item.component';
-import { MoominService } from './services/moomin.service';
+import { CharacterService } from './services/character.service';
 import { LogService } from './services/log.service';
 import { CreateCharacterComponent } from './create-character/create-character.component';
 import { FormsModule } from '@angular/forms';
@@ -30,7 +30,7 @@ import { LoadingComponent } from './loading/loading.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [MoominService, LogService],
+  providers: [CharacterService, LogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

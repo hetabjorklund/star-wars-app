@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angu
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ItemComponent } from '../item/item.component';
-import { MoominService } from '../services/moomin.service';
+import { CharacterService } from '../services/character.service';
 
 @Component({
   selector: 'app-list',
@@ -17,13 +17,13 @@ export class ListComponent implements OnInit, OnDestroy {
 
   currentSide = 'all';
 
-  moominService: MoominService;
+  characterService: CharacterService;
 
   subscription: Subscription;
 
-  constructor(activatedRoute: ActivatedRoute, moominService: MoominService) {
+  constructor(activatedRoute: ActivatedRoute, characterService: CharacterService) {
     this.activatedRoute = activatedRoute;
-    this.moominService = moominService;
+    this.characterService = characterService;
    }
 
    // jotta muisti ei kuormitu, subscriber täytyy tuhota kun sitä ei enää tarvita
@@ -35,15 +35,15 @@ export class ListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(
       (params) => { // ensimmäinen argumentti tekee jotain välitetyille reitin parametreille
-        this.characters = this.moominService.getCharacters(params.side);
+        this.characters = this.characterService.getCharacters(params.side);
         this.currentSide = params.side;
       } //,
       // (error) => {}, // jos tapahtuisi virhe (ei päde paramsin kohdalla, mutta muiden pyyntöjen kohdalla voisi olla)
       // () => {console.log("ListComponentin ngOnInit valmis")} // mitä tehdään kun metodin muut askeleet on suoritettu
     );
-    this.subscription = this.moominService.charactersChanged.subscribe(
+    this.subscription = this.characterService.charactersChanged.subscribe(
       () => {
-        this.characters = this.moominService.getCharacters(this.currentSide); // vaihtaa hahmon listalta toiselle heti kun puoli muuttuu
+        this.characters = this.characterService.getCharacters(this.currentSide); // vaihtaa hahmon listalta toiselle heti kun puoli muuttuu
       }
     );
   }

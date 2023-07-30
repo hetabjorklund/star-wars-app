@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MoominService } from './services/moomin.service';
+import { CharacterService } from './services/character.service';
 
 @Component({
   selector: 'app-root',
@@ -10,14 +10,14 @@ export class AppComponent implements OnInit {
 
   charactersLoaded = false;
 
-  moominService : MoominService;
+  characterService : CharacterService;
 
-  constructor(moominService : MoominService) {
-    this.moominService = moominService;
+  constructor(characterService : CharacterService) {
+    this.characterService = characterService;
   }
 
   ngOnInit(): void {
-    this.moominService.fetchCharacters();
+    this.characterService.fetchCharacters();
     this.charactersLoaded = true;
   }
 

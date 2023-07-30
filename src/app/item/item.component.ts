@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MoominService } from '../services/moomin.service';
+import { CharacterService } from '../services/character.service';
 
 @Component({
   selector: 'app-item',
@@ -14,20 +14,20 @@ export class ItemComponent implements OnInit {
   // minkä takia @Input-annotaatio on täällä lapsen päädyssä
   @Input() character;
 
-  moominService : MoominService;
+  characterService : CharacterService;
 
-  constructor(moominService: MoominService) {
-    this.moominService = moominService;
+  constructor(characterService: CharacterService) {
+    this.characterService = characterService;
   }
 
   ngOnInit(): void {
   }
 
   // kun item.component.html-sivulla klikataan nappia, tällä metodilla
-  // tieto valitusta puolesta päivittyy välitetään MoominServicen onSideChosen-metodille,
+  // tieto valitusta puolesta päivittyy välitetään CharacterServicen onSideChosen-metodille,
   // joka päivittää hahmon tilan
   onAssign(side: string) {
-    this.moominService.onSideChosen({name: this.character.name, side: side});
+    this.characterService.onSideChosen({name: this.character.name, side: side});
   }
 
 }

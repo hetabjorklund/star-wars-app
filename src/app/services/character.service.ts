@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 // Annotaatio @Injectable tarvitaan, jotta tämän servicen voi joko injektoida muualle
 // tai jotta tähän serviceen voi injektoida muita servicejä
 @Injectable()
-export class MoominService {
+export class CharacterService {
 
   // lista alustetaan tässä, getCharacters() hakee lisää hahmoja ja lisää ne listan jatkoksi
   private characters = [
