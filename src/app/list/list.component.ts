@@ -1,7 +1,6 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { ItemComponent } from '../item/item.component';
 import { CharacterService } from '../services/character.service';
 
 @Component({
@@ -37,9 +36,7 @@ export class ListComponent implements OnInit, OnDestroy {
       (params) => { // ensimmäinen argumentti tekee jotain välitetyille reitin parametreille
         this.characters = this.characterService.getCharacters(params.side);
         this.currentSide = params.side;
-      } //,
-      // (error) => {}, // jos tapahtuisi virhe (ei päde paramsin kohdalla, mutta muiden pyyntöjen kohdalla voisi olla)
-      // () => {console.log("ListComponentin ngOnInit valmis")} // mitä tehdään kun metodin muut askeleet on suoritettu
+      }
     );
     this.subscription = this.characterService.charactersChanged.subscribe(
       () => {

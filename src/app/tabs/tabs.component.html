@@ -1,25 +1,16 @@
 <!-- Tämä menee app.component.html:n sisälle-->
 <div>
   <ul class="nav nav-tabs nav-fill">
-    <!-- <li class="nav-item" [ngClass]="{active: chosenList === 'all'}"> -->
     <li class="nav-item">
       <!-- onChoose kuuntelee klikkausta ja kertoo minkä valinnan tab näytetään -->
-      <!-- <a class="nav-link" aria-current="page" (click)="onChoose('all')" style="cursor: pointer">All</a> -->
       <a routerLinkActive="active" routerLink="/characters/all">All</a>
     </li>
-    <!-- <li class="nav-item" [ngClass]="{active: chosenList === 'light'}"> -->
     <li class="nav-item">
-      <!-- <a class="nav-link" (click)="onChoose('light')" style="cursor: pointer">Light</a> -->
       <a routerLinkActive="active" routerLink="/characters/light">Light</a>
     </li>
-    <!-- <li class="nav-item" [ngClass]="{active: chosenList === 'dark'}"> -->
     <li class="nav-item">
-      <!-- <a class="nav-link" (click)="onChoose('dark')" style="cursor: pointer">Dark</a> -->
       <a routerLinkActive="active" routerLink="/characters/dark">Dark</a>
     </li>
   </ul>
-  <!-- getCharacters on TabsComponentin metodi, joka kutsuu CharacterServicen samannimistä metodia
-  joka filtteröi näytettävän listan onChoosen (yllä) kuunteleman valinnan mukaan -->
-  <!-- <app-list [characters]="getCharacters()"></app-list> -->
   <router-outlet></router-outlet>
 </div>

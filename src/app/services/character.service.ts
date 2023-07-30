@@ -40,20 +40,9 @@ export class CharacterService {
     this.logService.writeLog("Added new character " + newCharacter.name);
   }
 
-  // vanha tapa tehdä get, deprekoitu, uusi next-error-complete-tapa alla
-  // fetchCharacters() {
-  //   this.httpClient.get(this.starWarsAPI).subscribe(
-  //     (res) => {
-  //       console.log(res);
-  //     },
-  //     (error) => {console.error()}
-  //   );
-  // }
-
   fetchCharacters() {
     this.httpClient.get(this.starWarsAPI).subscribe({
       next: (res) => {
-        console.log(res);
         const newCharacters = res['results'].map(character => {
           return {name: character.name, side: ''};
         });

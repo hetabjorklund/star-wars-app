@@ -21,7 +21,7 @@ const routes : Routes = [
     }
     ]
   },
-  // /new-character on sivu jolla halutaan näkyvän CreateCharacterComponent
+  // new-character on sivu jolla halutaan näkyvän CreateCharacterComponent
   {
     path: 'new-character',
     component: CreateCharacterComponent
