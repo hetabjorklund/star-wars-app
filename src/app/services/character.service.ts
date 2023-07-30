@@ -10,8 +10,8 @@ export class CharacterService {
 
   // lista alustetaan tässä, getCharacters() hakee lisää hahmoja ja lisää ne listan jatkoksi
   private characters = [
-    { name: 'Muumipeikko', side: ''},
-    { name: 'Nuuskamuikkunen', side: ''}
+    { name: 'Luke Skywalker', side: 'light'},
+    { name: 'Darth Vader', side: 'dark'}
   ];
 
   charactersChanged = new Subject<void>(); // voisi käyttää myös EventMitteriä

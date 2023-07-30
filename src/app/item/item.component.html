@@ -3,13 +3,13 @@
   <h5 class="list-group-item-heading">{{ character.name }}</h5>
   <div>
     <!-- Kumpikin nappi kuuntee klikkausta ja
-    klikkauksen perusteella vie moomin- tai nonmoomin-tiedon ItemComponentin onAssign-metodille
+    klikkauksen perusteella vie light- tai dark-tiedon ItemComponentin onAssign-metodille
     onAssign-metodi kutsuu CharacterServicen metodia onSideChosen ja antaa sille parametrina hahmon nimen ja valitun puolen
     CharacterServicen onSideChosen tallentaa muutoksen hahmon tietoihin
     name-attribuuttiin menee klikatun hahmon nimi
     se, että tässä on joku character jolla on nimi, tiedetään siitä että yllä h5-tagin kohdalla on {{ character.name }} -->
-    <button class="btn btn-primary" (click)="onAssign('moomin')">Moomin</button>
-    <button class="btn btn-secondary" (click)="onAssign('nonmoomin')">Non-moomin</button>
+    <button class="btn btn-primary" (click)="onAssign('light')">Light</button>
+    <button class="btn btn-secondary" (click)="onAssign('dark')">Dark</button>
   </div>
 </a>
 

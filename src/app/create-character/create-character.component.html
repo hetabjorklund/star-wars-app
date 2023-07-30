@@ -19,7 +19,7 @@ kutsutaan CreateCharacterComponentin metodia onSubmit -->
     <span class="help-block" *ngIf="nameCheck.invalid && nameCheck.touched">Please enter a name</span>
   </div>
   <div class="form-group"></div>
-    <label for="side">Choose moomin-ness</label>
+    <label for="side">Choose side</label>
     <select name="side" id="side" class="form-control" ngModel>
       <option *ngFor="let side of availableSides" [value]="side.value">{{ side.display }}</option>
     </select>
