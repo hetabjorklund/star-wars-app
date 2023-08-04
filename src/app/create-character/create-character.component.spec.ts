@@ -1,5 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CreateCharacterComponent } from './create-character.component';
+import { CharacterService } from "../services/character.service";
+import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from "@angular/forms";
 
 describe('CreateCharacterComponent', () => {
   let component: CreateCharacterComponent;
@@ -7,7 +10,9 @@ describe('CreateCharacterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreateCharacterComponent ]
+      imports: [HttpClientModule, FormsModule],
+      declarations: [CreateCharacterComponent],
+      providers: [CharacterService],
     })
     .compileComponents();
 
